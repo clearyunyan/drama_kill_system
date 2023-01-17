@@ -6,6 +6,7 @@ spring:
     url: jdbc:mysql://localhost:3306/drama_kill_system?servierTimezone=UTC
     username: root
     password: 6135902
+    
 
   mail:
     # SMTP服务器域名

@@ -12,7 +12,7 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
 /**
- * @author: author
+ * @author: luhe
  * @date: 2023/1/18 0.33
  * @description:
  */

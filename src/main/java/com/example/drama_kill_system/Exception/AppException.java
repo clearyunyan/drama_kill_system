@@ -1,8 +1,8 @@
 package com.example.drama_kill_system.Exception;
 
 /**
- * @author: ladidol
- * @date: 2022/9/27 23:13
+ * @author: luhe
+ * @date: 2022/1/17 23:13
  * @description:
  */
 public class AppException extends RuntimeException {
