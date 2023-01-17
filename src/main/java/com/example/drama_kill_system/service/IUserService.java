@@ -2,6 +2,7 @@ package com.example.drama_kill_system.service;
 
 import com.example.drama_kill_system.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.drama_kill_system.result.Result;
 
 /**
  * <p>
@@ -12,5 +13,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2023-01-17
  */
 public interface IUserService extends IService<User> {
+
+    Boolean opLogin(String password);
+
 
 }

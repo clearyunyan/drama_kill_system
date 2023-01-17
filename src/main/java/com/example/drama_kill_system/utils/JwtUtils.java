@@ -94,12 +94,19 @@ public class JwtUtils {
     /**
      * 根据userId和userName生成token
      */
-    public static String generateToken(Long userId, String nickName) {
+    public static String generateToken(Integer userId, String nickName) {
         Map<String, Object> map = new HashMap<>();
         map.put("userId", userId);
         map.put("nickName", nickName);
         return createJWT(map, tokenExpiredTime);
     }
+    public static String generateShopToken(Integer shopId, String nickName) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("userId", shopId);
+        map.put("nickName", nickName);
+        return createJWT(map, tokenExpiredTime);
+    }
+
 
     @Value("${jwt.token-expired-time}")
     public void setTokenExpiredTime(long tokenExpiredTime) {
