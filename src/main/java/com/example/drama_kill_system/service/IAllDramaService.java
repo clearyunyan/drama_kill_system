@@ -13,4 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IAllDramaService extends IService<AllDrama> {
 
+    AllDrama queryById(Integer id);
 }

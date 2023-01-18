@@ -19,7 +19,7 @@ public class opInterceptor implements HandlerInterceptor {
     }
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)  {
         String token= (String) redisUtil.get(UserController.opKey);
         if (StrUtil.isNotEmpty(token))
             return true;
