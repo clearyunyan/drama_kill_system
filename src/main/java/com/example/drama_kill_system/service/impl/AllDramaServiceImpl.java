@@ -25,6 +25,8 @@ public class AllDramaServiceImpl extends ServiceImpl<AllDramaMapper, AllDrama> i
 private static String DramaKey="drama";
 @Resource
     StringRedisTemplate stringRedisTemplate;
+@Resource
+    AllDramaMapper allDramaMapper;
 @Override
     public synchronized AllDrama  queryById(Integer id)  {
     String dramaJson = stringRedisTemplate.opsForValue().get("drama");
@@ -35,7 +37,7 @@ private static String DramaKey="drama";
     if(dramaJson!=null){
         return null;
     }
-    AllDrama allDrama = queryById(id);
+    AllDrama allDrama =allDramaMapper.selectById(id);
     if (allDrama==null){
         //存空值
         stringRedisTemplate.opsForValue().set(DramaKey+id,"",30, TimeUnit.MINUTES);

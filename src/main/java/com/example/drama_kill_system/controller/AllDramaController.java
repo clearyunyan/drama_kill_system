@@ -28,7 +28,7 @@ public class AllDramaController {
         Page<AllDrama> page=iAllDramaService.query().page(new Page<>(current,10));
         return Result.ok(page.getRecords());
     }
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     private Result queryDramaByid(@PathVariable("id") Integer id){
         return Result.ok(iAllDramaService.queryById(id));
     }
