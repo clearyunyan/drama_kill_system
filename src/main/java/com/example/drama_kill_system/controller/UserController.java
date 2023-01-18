@@ -26,14 +26,16 @@ import javax.servlet.http.HttpSession;
 @RestController
 @RequestMapping("/user")
 public class UserController {
+    public static String opKey="op";
+    public static String opValue="ok";
     @Resource
     IUserService iUserService;
     @Resource
     RedisUtil redisUtil;
     @GetMapping("opLogin")
-    public Result opLogin(String password, HttpServletRequest request){
+    public Result opLogin(String password){
     if (iUserService.opLogin(password)){
-        redisUtil.set("op","ok",6000);
+        redisUtil.set(opKey,opValue,6000);
         return Result.ok("登录成功");
     }
     else

@@ -17,10 +17,10 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
-private static String opPassword;
+private static String opPassword="qwe123ewq321";
     @Override
     public Boolean opLogin(String password) {
-        if (!password.equals("qwe123ewq321")){
+        if (!password.equals(opPassword)){
         return false;
         }
         return true;
