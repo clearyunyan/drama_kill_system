@@ -5,8 +5,8 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/drama_kill_system?servierTimezone=UTC
     username: root
-    password: 6135902
-    
+    password: Nahidadegou416!!
+
 
   mail:
     # SMTP服务器域名

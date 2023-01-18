@@ -16,5 +16,4 @@ public interface IUserService extends IService<User> {
 
     Boolean opLogin(String password);
 
-
 }
