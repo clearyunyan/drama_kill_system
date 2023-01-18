@@ -29,7 +29,7 @@ public class AllDramaController {
         return Result.ok(page.getRecords());
     }
     @GetMapping("/{id}")
-    private Result queryDramaByid(@PathVariable("id") Integer id){
+    private Result queryDramaById(@PathVariable("id") Integer id){
         return Result.ok(iAllDramaService.queryById(id));
     }
 }
