@@ -4,7 +4,10 @@ import com.example.drama_kill_system.entity.Shop;
 import com.example.drama_kill_system.mapper.ShopMapper;
 import com.example.drama_kill_system.service.IShopService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -16,4 +19,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ShopServiceImpl extends ServiceImpl<ShopMapper, Shop> implements IShopService {
+
+    @Autowired
+    private ShopMapper shopMapper;
+
+    @Override
+    public List<Shop> selectJoinedShops() {
+        return shopMapper.selectAllJoinedShops();
+    }
 }

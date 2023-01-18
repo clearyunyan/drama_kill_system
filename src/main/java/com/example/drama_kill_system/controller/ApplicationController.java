@@ -17,4 +17,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/application")
 public class ApplicationController {
 
+
 }
