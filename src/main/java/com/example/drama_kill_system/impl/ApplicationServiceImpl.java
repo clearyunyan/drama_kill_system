@@ -1,4 +1,4 @@
-package com.example.drama_kill_system.service.impl;
+package com.example.drama_kill_system.impl;
 
 import com.example.drama_kill_system.entity.Application;
 import com.example.drama_kill_system.mapper.ApplicationMapper;

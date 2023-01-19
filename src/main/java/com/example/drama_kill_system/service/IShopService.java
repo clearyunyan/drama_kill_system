@@ -14,5 +14,4 @@ import java.util.List;
  * @since 2023-01-17
  */
 public interface IShopService extends IService<Shop> {
-    List<Shop> selectJoinedShops();
 }

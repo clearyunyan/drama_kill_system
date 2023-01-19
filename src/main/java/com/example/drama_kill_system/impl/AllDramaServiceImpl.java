@@ -1,4 +1,4 @@
-package com.example.drama_kill_system.service.impl;
+package com.example.drama_kill_system.impl;
 
 import cn.hutool.core.util.StrUtil;
 import com.example.drama_kill_system.entity.AllDrama;

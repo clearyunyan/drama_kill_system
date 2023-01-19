@@ -1,17 +1,11 @@
 package com.example.drama_kill_system.controller;
 
-
 import com.example.drama_kill_system.entity.Shop;
-import com.example.drama_kill_system.mapper.ShopMapper;
-import com.example.drama_kill_system.service.IShopService;
-import com.example.drama_kill_system.service.impl.ShopServiceImpl;
+import com.example.drama_kill_system.service.IManager.ManageShopsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -27,12 +21,10 @@ import java.util.List;
 public class ShopController {
 
     @Autowired
-    private IShopService shopService;
+    private ManageShopsService service;
 
     @GetMapping
-    List<Shop> getJoinedShops(){
-        return shopService.selectJoinedShops();
+    List<Shop> getJoinedShops() {
+        return service.selectJoinedShops();
     }
-
-
 }

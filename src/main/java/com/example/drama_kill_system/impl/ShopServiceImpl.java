@@ -1,4 +1,4 @@
-package com.example.drama_kill_system.service.impl;
+package com.example.drama_kill_system.impl;
 
 import com.example.drama_kill_system.entity.Shop;
 import com.example.drama_kill_system.mapper.ShopMapper;
@@ -20,11 +20,5 @@ import java.util.List;
 @Service
 public class ShopServiceImpl extends ServiceImpl<ShopMapper, Shop> implements IShopService {
 
-    @Autowired
-    private ShopMapper shopMapper;
 
-    @Override
-    public List<Shop> selectJoinedShops() {
-        return shopMapper.selectAllJoinedShops();
-    }
 }

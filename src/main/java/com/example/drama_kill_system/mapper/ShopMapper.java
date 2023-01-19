@@ -18,6 +18,9 @@ import java.util.List;
 @Mapper
 public interface ShopMapper extends BaseMapper<Shop> {
 
-    @Select("select *from shop where ?????")
+    @Select("select * from shop where ?????")
     List<Shop> selectAllJoinedShops();
+
+    @Select("select * from application where status = 0??1")
+    Boolean selectRequest();
 }
