@@ -21,8 +21,8 @@ public class ManageShopsServiceImpl extends ServiceImpl<ShopMapper, Shop> implem
     }
 
     @Override
-    public Boolean handlePlayRequests() {
-        return shopMapper.selectRequest();
+    public Boolean handlePlayRequests(Integer shopId) {
+        return shopMapper.selectRequest(shopId);
     }
 }
 

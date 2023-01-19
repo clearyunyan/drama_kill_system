@@ -1,15 +1,15 @@
 package com.example.drama_kill_system.controller.Manager;
 
 
-import com.example.drama_kill_system.entity.Shop;
+import com.example.drama_kill_system.result.Result;
 import com.example.drama_kill_system.service.IManager.ManageShopsService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.drama_kill_system.service.IManager.ManagerUsersService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * <p>
@@ -28,26 +28,31 @@ import java.util.List;
 public class ManageShopsController {
 
     @Resource
-    private ManageShopsService service;
+    private ManageShopsService shopService;
+
+    @Resource
+    private ManagerUsersService usersService;
+
+    //1.管理账户的登录,修改密码
+
+    //2查看已加入的商家
+    @GetMapping("/shops")
+    private Result getJoinedShops() {
+        return Result.ok(shopService.selectJoinedShops());
+    }
 
 
-
-
-
-
-
-
-
-
-    //3.处理商家的剧本杀申请
-    @GetMapping
-    Boolean dealApplicationRequest(){
-        return service.handlePlayRequests();
-
+    //3.处理商家的剧本杀申请,requestId是申请剧本杀的商家的主键id
+    @GetMapping("/{requestId}")
+    private Result dealApplicationRequest(@PathVariable("requestId") Integer id){
+        return Result.ok(shopService.handlePlayRequests(id));
     }
 
 
     //4.查看已注册的用户信息
-
+    @GetMapping("/all")
+    private Result getAllUsers(){
+        return Result.ok(usersService.getAllUsers());
+    }
 
 }

@@ -3,6 +3,9 @@ package com.example.drama_kill_system.mapper;
 import com.example.drama_kill_system.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * <p>

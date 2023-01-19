@@ -9,7 +9,7 @@ public interface ManageShopsService extends IService<Shop> {
 
     List<Shop> selectJoinedShops();
 
-    Boolean handlePlayRequests();
+    Boolean handlePlayRequests(Integer shopId);
 
 
 }

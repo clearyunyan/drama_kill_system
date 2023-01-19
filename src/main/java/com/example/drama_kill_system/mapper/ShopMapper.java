@@ -18,8 +18,6 @@ import java.util.List;
 @Mapper
 public interface ShopMapper extends BaseMapper<Shop> {
 
-
-
-    @Select("select * from application where status = 0??1")
-    Boolean selectRequest();
+    @Select("select * from application where shop.shopId = #{shopId} and status = '申请中'")
+    Boolean selectRequest(Integer shopId);
 }
