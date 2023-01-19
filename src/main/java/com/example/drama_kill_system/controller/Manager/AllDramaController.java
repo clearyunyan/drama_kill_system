@@ -39,6 +39,12 @@ public class AllDramaController {
             return Result.ok("添加成功");
         }
         return Result.fail("添加失败");
-
+    }
+    @GetMapping("/delete/{id}")
+    private Result deleteAllDrama(@PathVariable("id") Integer id){
+        if (managerallDramaService.removeById(id)) {
+             return Result.ok("删除成功");
+        }
+        return Result.fail("删除失败");
     }
 }
