@@ -1,4 +1,4 @@
-package com.example.drama_kill_system.service;
+package com.example.drama_kill_system.service.IManager;
 
 import com.example.drama_kill_system.entity.AllDrama;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -11,7 +11,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author luhe
  * @since 2023-01-17
  */
-public interface IAllDramaService extends IService<AllDrama> {
+public interface ManagerAllDramaService extends IService<AllDrama> {
 
     AllDrama queryById(Integer id);
 }

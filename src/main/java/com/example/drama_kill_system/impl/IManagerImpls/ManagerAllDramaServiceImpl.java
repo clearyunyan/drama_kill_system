@@ -1,9 +1,9 @@
-package com.example.drama_kill_system.impl;
+package com.example.drama_kill_system.impl.IManagerImpls;
 
 import cn.hutool.core.util.StrUtil;
 import com.example.drama_kill_system.entity.AllDrama;
 import com.example.drama_kill_system.mapper.AllDramaMapper;
-import com.example.drama_kill_system.service.IAllDramaService;
+import com.example.drama_kill_system.service.IManager.ManagerAllDramaService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.drama_kill_system.utils.JsonUtils;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
  * @since 2023-01-17
  */
 @Service
-public class AllDramaServiceImpl extends ServiceImpl<AllDramaMapper, AllDrama> implements IAllDramaService {
+public class ManagerAllDramaServiceImpl extends ServiceImpl<AllDramaMapper, AllDrama> implements ManagerAllDramaService {
 private static String DramaKey="drama";
 @Resource
     StringRedisTemplate stringRedisTemplate;

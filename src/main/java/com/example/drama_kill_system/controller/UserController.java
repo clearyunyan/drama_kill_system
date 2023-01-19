@@ -1,8 +1,6 @@
 package com.example.drama_kill_system.controller;
 
 
-import cn.hutool.core.util.ObjectUtil;
-import com.example.drama_kill_system.Exception.AppException;
 import com.example.drama_kill_system.result.Result;
 import com.example.drama_kill_system.service.IUserService;
 import com.example.drama_kill_system.utils.RedisUtil;
@@ -12,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 /**
  * <p>
