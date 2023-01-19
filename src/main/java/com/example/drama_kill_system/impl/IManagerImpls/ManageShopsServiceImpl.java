@@ -17,7 +17,7 @@ public class ManageShopsServiceImpl extends ServiceImpl<ShopMapper, Shop> implem
 
     @Override
     public List<Shop> selectJoinedShops() {
-        return shopMapper.selectAllJoinedShops();
+        return shopMapper.selectList(null);
     }
 
     @Override

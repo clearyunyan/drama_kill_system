@@ -1,11 +1,15 @@
 package com.example.drama_kill_system.controller.Manager;
 
 
+import com.example.drama_kill_system.entity.Shop;
 import com.example.drama_kill_system.service.IManager.ManageShopsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * <p>
@@ -23,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/manager/shop")
 public class ManageShopsController {
 
-    @Autowired
+    @Resource
     private ManageShopsService service;
 
 
@@ -39,6 +43,7 @@ public class ManageShopsController {
     @GetMapping
     Boolean dealApplicationRequest(){
         return service.handlePlayRequests();
+
     }
 
 

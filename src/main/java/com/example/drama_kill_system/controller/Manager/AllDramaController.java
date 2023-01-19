@@ -7,6 +7,7 @@ import com.example.drama_kill_system.result.Result;
 import com.example.drama_kill_system.service.IManager.ManagerAllDramaService;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 /**
@@ -31,5 +32,13 @@ public class AllDramaController {
     @GetMapping("/{id}")
     private Result queryDramaById(@PathVariable("id") Integer id){
         return Result.ok(managerallDramaService.queryById(id));
+    }
+    @PostMapping("add")
+    private Result addAllDrama(@RequestBody AllDrama allDrama){
+        if (managerallDramaService.save(allDrama)) {
+            return Result.ok("添加成功");
+        }
+        return Result.fail("添加失败");
+
     }
 }
