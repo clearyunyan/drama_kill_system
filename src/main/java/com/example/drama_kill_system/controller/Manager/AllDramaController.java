@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.drama_kill_system.entity.AllDrama;
 import com.example.drama_kill_system.result.Result;
 import com.example.drama_kill_system.service.IManager.ManagerAllDramaService;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
@@ -29,22 +30,59 @@ public class AllDramaController {
         Page<AllDrama> page= managerallDramaService.query().page(new Page<>(current,10));
         return Result.ok(page.getRecords());
     }
+    //条件查询,type
+    @GetMapping("/selectByType")
+    private Result queryDramaByType(@RequestParam(value = "current", defaultValue = "1") Integer current,@RequestParam("type") String type){
+        Page<AllDrama> page=managerallDramaService.lambdaQuery()
+                .eq(AllDrama::getType,type).page(new Page<>(current,10));
+        return Result.ok(page.getRecords());
+    }
+    //条件查询,人数
+    @GetMapping("/selectByCountMan")
+    private Result queryDramaByCountMan(@RequestParam(value = "current", defaultValue = "1") Integer current,@RequestParam("countMan") Integer countMan){
+        Page<AllDrama> page=managerallDramaService.lambdaQuery()
+                .eq(AllDrama::getCountMan,countMan).page(new Page<>(current,10));
+        return Result.ok(page.getRecords());
+    }
+    //条件查询,两个都有:
+    @GetMapping("/selectByTwo")
+    private  Result queryDramaByTwo(@RequestParam(value = "current", defaultValue = "1") Integer current
+            ,@RequestParam("countMan") Integer countMan,@RequestParam("type") String type){
+        Page<AllDrama> page=managerallDramaService.lambdaQuery()
+                .eq(AllDrama::getType,type)
+                .eq(AllDrama::getCountMan,countMan).page(new Page<>(current,10));
+        return Result.ok(page.getRecords());
+    }
     @GetMapping("/{id}")
     private Result queryDramaById(@PathVariable("id") Integer id){
         return Result.ok(managerallDramaService.queryById(id));
     }
     @PostMapping("add")
     private Result addAllDrama(@RequestBody AllDrama allDrama){
-        if (managerallDramaService.save(allDrama)) {
+        if (managerallDramaService.insert(allDrama)) {
             return Result.ok("添加成功");
         }
-        return Result.fail("添加失败");
+        return Result.fail("添加失败,请再尝试");
     }
     @GetMapping("/delete/{id}")
     private Result deleteAllDrama(@PathVariable("id") Integer id){
-        if (managerallDramaService.removeById(id)) {
+        if (managerallDramaService.deleteDrama(id)) {
              return Result.ok("删除成功");
         }
-        return Result.fail("删除失败");
+        return Result.fail("删除失败,请再尝试");
+    }
+
+    /**
+     * author:  luhe
+     * @param allDrama
+     * @return
+     * 修改剧本杀数据并更新缓存,加了悲观锁防止缓存击穿
+     */
+    @PostMapping("/update")
+    private  Result  updateAllDrama(@RequestBody AllDrama allDrama){
+        if (managerallDramaService.updateDrama(allDrama)){
+            return Result.ok("更新成功");
+        }
+        return Result.fail("更新失败,请重试");
     }
 }

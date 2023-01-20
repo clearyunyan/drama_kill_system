@@ -14,4 +14,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface ManagerAllDramaService extends IService<AllDrama> {
 
     AllDrama queryById(Integer id);
+
+    boolean deleteDrama(Integer id);
+
+    boolean updateDrama(AllDrama allDrama);
+
+    boolean insert(AllDrama allDrama);
 }
