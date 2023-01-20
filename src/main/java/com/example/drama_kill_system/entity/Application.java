@@ -25,7 +25,9 @@ public class Application implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "shop_id", type = IdType.AUTO)
+    @TableId(value = "applicationId", type = IdType.AUTO)
+    private Integer applicationId;
+
     private Integer shopId;
 
     private Integer dramaId;
