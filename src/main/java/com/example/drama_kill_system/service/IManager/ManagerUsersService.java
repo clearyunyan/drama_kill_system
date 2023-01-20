@@ -7,5 +7,4 @@ import com.example.drama_kill_system.entity.User;
 import java.util.List;
 
 public interface ManagerUsersService extends IService<User> {
-    List<User> getAllUsers();
 }

@@ -1,4 +1,4 @@
-package com.example.drama_kill_system.service;
+package com.example.drama_kill_system.service.IManager;
 
 import com.example.drama_kill_system.entity.Application;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -13,4 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IApplicationService extends IService<Application> {
 
+    Boolean changePlayingStatus(Integer applicationId,Integer status);
 }

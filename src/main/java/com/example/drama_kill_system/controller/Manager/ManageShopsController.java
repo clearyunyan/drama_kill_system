@@ -1,13 +1,13 @@
 package com.example.drama_kill_system.controller.Manager;
 
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.example.drama_kill_system.entity.Shop;
+import com.example.drama_kill_system.entity.User;
 import com.example.drama_kill_system.result.Result;
 import com.example.drama_kill_system.service.IManager.ManageShopsService;
 import com.example.drama_kill_system.service.IManager.ManagerUsersService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -33,26 +33,29 @@ public class ManageShopsController {
     @Resource
     private ManagerUsersService usersService;
 
+
+
     //1.管理账户的登录,修改密码
 
+
+
     //2查看已加入的商家
-    @GetMapping("/shops")
-    private Result getJoinedShops() {
-        return Result.ok(shopService.selectJoinedShops());
+    @GetMapping("/allshops")
+    private Result getJoinedShops(@RequestParam(value = "current", defaultValue = "1") Integer current
+            ) {
+        Page<Shop> page=shopService.lambdaQuery()
+                .page(new Page<>(current,10));
+        return Result.ok(page.getRecords());
     }
 
-
-    //3.处理商家的剧本杀申请,requestId是申请剧本杀的商家的主键id
-    @GetMapping("/{requestId}")
-    private Result dealApplicationRequest(@PathVariable("requestId") Integer id){
-        return Result.ok(shopService.handlePlayRequests(id));
-    }
 
 
     //4.查看已注册的用户信息
-    @GetMapping("/all")
-    private Result getAllUsers(){
-        return Result.ok(usersService.getAllUsers());
+    @GetMapping("/alluser")
+    private Result getAllUsers(@RequestParam(value = "current", defaultValue = "1") Integer current){
+        Page<User> page=usersService.lambdaQuery()
+                .page(new Page<>(current,10));
+        return Result.ok(page.getRecords());
     }
 
 }

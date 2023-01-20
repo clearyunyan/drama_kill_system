@@ -6,24 +6,11 @@ import com.example.drama_kill_system.mapper.ShopMapper;
 import com.example.drama_kill_system.service.IManager.ManageShopsService;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-import java.util.List;
-
 @Service
 public class ManageShopsServiceImpl extends ServiceImpl<ShopMapper, Shop> implements ManageShopsService {
 
-    @Resource
-    private ShopMapper shopMapper;
 
-    @Override
-    public List<Shop> selectJoinedShops() {
-        return shopMapper.selectList(null);
-    }
 
-    @Override
-    public Boolean handlePlayRequests(Integer shopId) {
-        return shopMapper.selectRequest(shopId);
-    }
 }
 
 

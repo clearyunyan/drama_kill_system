@@ -32,6 +32,10 @@ public class Application implements Serializable {
 
     private String status;
 
+    private String dramaName;
+
+    private String shopName;
+
     private LocalDateTime createTime;
 
     private LocalDateTime dealTime;
