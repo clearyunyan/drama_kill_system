@@ -17,10 +17,10 @@ import org.apache.ibatis.annotations.Update;
 @Mapper
 public interface ApplicationMapper extends BaseMapper<Application> {
 
-    @Update("update application set status = '未通过' where applicationId = #{applicationId}")
+    @Update("update application set status = '未通过' where application_id = #{applicationId}")
     Boolean refuseApplication(int applicationId);
 
-    @Update("update application set status = '已通过' where applicationId = #{applicationId}")
+    @Update("update application set status = '已通过' where application_id = #{applicationId}")
     Boolean agreeApplication(int applicationId);
 
 }

@@ -36,15 +36,20 @@ public class ApplicationController {
 
     //3.2拒绝请求
     @GetMapping("/refuse/{applicationId}")
-    private Result refuseApplicationRequest(@PathVariable("applicationId") Integer applicationId,String reason){
-        applicationService.changePlayingStatus(applicationId,0);
-        return Result.fail("reason");
+    private Result refuseApplicationRequest(@PathVariable("applicationId") Integer applicationId){
+        if (applicationService.changePlayingStatus(applicationId,0)) {
+            return Result.ok("拒绝成功");
+        }
+        return Result.fail("拒绝失败");
     }
 
     //3.3同意请求
     @GetMapping("/agree/{applicationId}")
     private Result agreeApplicationRequest(@PathVariable("applicationId") Integer applicationId){
-        return Result.ok(applicationService.changePlayingStatus(applicationId,1));
+        if (applicationService.changePlayingStatus(applicationId,1)) {
+            return Result.ok("同意成功");
+        }
+        return Result.fail("同意失败");
     }
 
 }
