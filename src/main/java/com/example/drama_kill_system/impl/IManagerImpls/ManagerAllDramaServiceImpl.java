@@ -8,10 +8,13 @@ import com.example.drama_kill_system.mapper.AllDramaMapper;
 import com.example.drama_kill_system.service.IManager.ManagerAllDramaService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.drama_kill_system.utils.JsonUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.File;
 import java.sql.Wrapper;
 import java.util.concurrent.TimeUnit;
 
@@ -26,6 +29,8 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class ManagerAllDramaServiceImpl extends ServiceImpl<AllDramaMapper, AllDrama> implements ManagerAllDramaService {
 private static String DramaKey="drama";
+@Value("${file.path}")
+private static String filePath;
 @Resource
     StringRedisTemplate stringRedisTemplate;
 @Resource
@@ -71,7 +76,28 @@ private static String DramaKey="drama";
     }
 
     @Override
-    public boolean insert(AllDrama allDrama) {
+    public boolean insert(MultipartFile file, AllDrama allDrama) {
+        if (file.isEmpty()) {
+            return false;
+        }
+        String org = file.getOriginalFilename();
+        assert org != null;
+        String last=org.substring(org.lastIndexOf("."));
+        if(!(last.equals("jpg")||last.equals("png")||last.equals("bmp"))){
+            return false;
+        }
+        String fileName=filePath+System.currentTimeMillis()+last;
+        File dest=new File(fileName);
+        if (!dest.getParentFile().exists()) {
+            dest.getParentFile().mkdirs();
+        }
+        try {
+            file.transferTo(dest);
+            allDrama.setImg(fileName);
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
         if (allDramaMapper.insert(allDrama)>0) {
             AllDrama allDrama1 = allDramaMapper.selectOne(new LambdaUpdateWrapper<AllDrama>().eq(AllDrama::getAbout, allDrama.getAbout())
                     .eq(AllDrama::getCountMan, allDrama.getCountMan()));

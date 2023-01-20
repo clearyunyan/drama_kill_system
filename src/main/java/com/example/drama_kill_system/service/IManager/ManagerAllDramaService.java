@@ -2,6 +2,7 @@ package com.example.drama_kill_system.service.IManager;
 
 import com.example.drama_kill_system.entity.AllDrama;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * <p>
@@ -19,5 +20,5 @@ public interface ManagerAllDramaService extends IService<AllDrama> {
 
     boolean updateDrama(AllDrama allDrama);
 
-    boolean insert(AllDrama allDrama);
+    boolean insert(MultipartFile file, AllDrama allDrama);
 }
