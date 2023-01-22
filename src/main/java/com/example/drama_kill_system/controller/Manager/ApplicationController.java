@@ -18,7 +18,7 @@ import javax.annotation.Resource;
  * @since 2023-01-20
  */
 @RestController
-@RequestMapping("/application")
+@RequestMapping("/manager/application")
 public class ApplicationController {
 
     @Resource

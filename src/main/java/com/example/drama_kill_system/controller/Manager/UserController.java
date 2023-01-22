@@ -1,4 +1,4 @@
-package com.example.drama_kill_system.controller;
+package com.example.drama_kill_system.controller.Manager;
 
 
 import com.example.drama_kill_system.result.Result;
@@ -20,7 +20,7 @@ import javax.annotation.Resource;
  * @since 2023-01-17
  */
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/manager/user")
 public class UserController {
     public static String opKey="op";
     public static String opValue="ok";

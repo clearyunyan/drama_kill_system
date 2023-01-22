@@ -1,7 +1,7 @@
 package com.example.drama_kill_system.interceptors;
 
 import cn.hutool.core.util.StrUtil;
-import com.example.drama_kill_system.controller.UserController;
+import com.example.drama_kill_system.controller.Manager.UserController;
 import com.example.drama_kill_system.utils.RedisUtil;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;

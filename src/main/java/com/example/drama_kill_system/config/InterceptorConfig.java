@@ -16,7 +16,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         //拦截除了User外目录
         registry.addInterceptor(new opInterceptor(redisUtil))
-                .addPathPatterns("/**")
-                .excludePathPatterns("/user/**");
+                .addPathPatterns("/manager/**")
+                .excludePathPatterns("/manager/user/**");
     }
 }
