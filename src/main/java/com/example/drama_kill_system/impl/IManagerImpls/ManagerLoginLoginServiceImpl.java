@@ -1,8 +1,8 @@
-package com.example.drama_kill_system.impl;
+package com.example.drama_kill_system.impl.IManagerImpls;
 
 import com.example.drama_kill_system.entity.User;
 import com.example.drama_kill_system.mapper.UserMapper;
-import com.example.drama_kill_system.service.IUserService;
+import com.example.drama_kill_system.service.IManager.IUserLoginService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
  * @since 2023-01-17
  */
 @Service
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
+public class ManagerLoginLoginServiceImpl extends ServiceImpl<UserMapper, User> implements IUserLoginService {
 private static String opPassword="qwe123ewq321";
     @Override
     public Boolean opLogin(String password) {

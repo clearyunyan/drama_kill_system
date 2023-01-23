@@ -2,7 +2,7 @@ package com.example.drama_kill_system.controller.Manager;
 
 
 import com.example.drama_kill_system.result.Result;
-import com.example.drama_kill_system.service.IUserService;
+import com.example.drama_kill_system.service.IManager.IUserLoginService;
 import com.example.drama_kill_system.utils.RedisUtil;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,12 +25,12 @@ public class UserController {
     public static String opKey="op";
     public static String opValue="ok";
     @Resource
-    IUserService iUserService;
+    IUserLoginService iUserLoginService;
     @Resource
     RedisUtil redisUtil;
     @GetMapping("opLogin")
     public Result opLogin(String password){
-    if (iUserService.opLogin(password)){
+    if (iUserLoginService.opLogin(password)){
         redisUtil.set(opKey,opValue,6000);
         return Result.ok("登录成功");
     }

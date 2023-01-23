@@ -1,4 +1,4 @@
-package com.example.drama_kill_system.service;
+package com.example.drama_kill_system.service.IShop;
 
 import com.example.drama_kill_system.entity.Shop;
 import com.baomidou.mybatisplus.extension.service.IService;

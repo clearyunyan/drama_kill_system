@@ -1,13 +1,10 @@
-package com.example.drama_kill_system.impl;
+package com.example.drama_kill_system.impl.IShopImpls;
 
 import com.example.drama_kill_system.entity.Shop;
 import com.example.drama_kill_system.mapper.ShopMapper;
-import com.example.drama_kill_system.service.IShopService;
+import com.example.drama_kill_system.service.IShop.IShopService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * <p>
