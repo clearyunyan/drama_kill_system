@@ -37,7 +37,6 @@ public class Shop implements Serializable {
 
     private String about;
 
-    private Integer loginDelete;
 
 
 }

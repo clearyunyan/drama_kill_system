@@ -1,6 +1,6 @@
 package com.example.drama_kill_system.config;
 
-import com.example.drama_kill_system.interceptors.opInterceptor;
+import com.example.drama_kill_system.service.interceptors.opInterceptor;
 import com.example.drama_kill_system.utils.RedisUtil;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

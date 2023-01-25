@@ -2,8 +2,8 @@ package com.example.drama_kill_system.service.IShop;
 
 import com.example.drama_kill_system.entity.Shop;
 import com.baomidou.mybatisplus.extension.service.IService;
-
-import java.util.List;
+import com.example.drama_kill_system.entity.dto.ShopDTO;
+import com.example.drama_kill_system.result.Result;
 
 /**
  * <p>
@@ -14,4 +14,7 @@ import java.util.List;
  * @since 2023-01-17
  */
 public interface IShopService extends IService<Shop> {
+    boolean sendEmail(String email);
+
+    Result res(ShopDTO shopDTO);
 }
