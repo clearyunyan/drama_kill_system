@@ -3,7 +3,7 @@ package com.example.drama_kill_system.entity.dto;
 import lombok.Data;
 
 @Data
-public class ShopDTO {
+public class ShopLoginDTO {
     private String name;
     private String code;
     private String email;
