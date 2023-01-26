@@ -1,10 +1,13 @@
 package com.example.drama_kill_system.impl.IManagerImpls;
 
 import com.example.drama_kill_system.entity.Application;
+import com.example.drama_kill_system.entity.ShopDrama;
 import com.example.drama_kill_system.mapper.ApplicationMapper;
+import com.example.drama_kill_system.mapper.ShopDramaMapper;
 import com.example.drama_kill_system.service.IManager.IApplicationService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -21,12 +24,20 @@ public class ApplicationServiceImpl extends ServiceImpl<ApplicationMapper, Appli
 
     @Resource
     private ApplicationMapper applicationMapper;
+    @Resource
+    private ShopDramaMapper shopDramaMapper;
 
     @Override
+    @Transactional
     public Boolean changePlayingStatus(Integer applicationId, Integer status) {
         if(status==0){
             return applicationMapper.refuseApplication(applicationId);
         }else{
+            Application application = applicationMapper.selectById(applicationId);
+            ShopDrama shopDrama=new ShopDrama();
+            shopDrama.setShopId(application.getShopId());
+            shopDrama.setDramaId(application.getDramaId());
+            shopDramaMapper.insert(shopDrama);
             return applicationMapper.agreeApplication(applicationId);
         }
     }

@@ -10,7 +10,6 @@
         <result column="password" property="password" />
         <result column="address" property="address" />
         <result column="about" property="about" />
-        <result column="login_delete" property="loginDelete" />
     </resultMap>
 
 </mapper>
