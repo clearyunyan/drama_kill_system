@@ -25,7 +25,11 @@ public class InterceptorConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/manager/user/**");
         registry.addInterceptor(new ShopTokenInterceptor(redisUtil,iShopService))
                 .addPathPatterns("/shop/**")
-                .excludePathPatterns("/shop/shopRes/**");
+                .excludePathPatterns("/shop/shopRes/getCode")
+                .excludePathPatterns("/shop/shopRes/res")
+                .excludePathPatterns("/shop/shopRes/login")
+                .excludePathPatterns("/shop/shopRes/changePasswordByEmail");
+
     }
 
 

@@ -32,9 +32,8 @@ public class ShopTokenInterceptor implements HandlerInterceptor {
         if (header != null && !"".equals(header)) {
             if (header.startsWith(BEARER)) {
                 String token = header.substring(7);
-                System.out.println(redisUtil.get(token));
                 Integer shopId = (Integer) redisUtil.get(token);
-                if (StrUtil.isBlank(shopId+"")) {
+                if (StrUtil.isBlank(shopId+"")||shopId==null) {
                     return false;
                 }
                 Shop shop = iShopService.getById(shopId);

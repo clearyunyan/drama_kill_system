@@ -65,7 +65,7 @@ public class AllDramaController {
         }
         return Result.fail("添加失败,请再尝试");
     }
-    @GetMapping("/delete/{id}")
+    @DeleteMapping ("/delete/{id}")
     private Result deleteAllDrama(@PathVariable("id") Integer id){
         if (managerallDramaService.deleteDrama(id)) {
              return Result.ok("删除成功");
@@ -79,7 +79,7 @@ public class AllDramaController {
      * @return
      * 修改剧本杀数据并更新缓存,加了悲观锁防止缓存击穿
      */
-    @PostMapping("/update")
+    @PutMapping("/update")
     private  Result  updateAllDrama(@RequestBody AllDrama allDrama){
         if (managerallDramaService.updateDrama(allDrama)){
             return Result.ok("更新成功");
