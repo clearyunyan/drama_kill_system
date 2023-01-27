@@ -130,4 +130,26 @@ public class ShopServiceImpl extends ServiceImpl<ShopMapper, Shop> implements IS
         return Result.fail("发生未知错误,请重试");
     }
 
+    @Override
+    public Result updateShop(Shop shop) {
+        if (!updateById(shop)) {
+            return Result.fail("修改失败");
+        }
+        ShopHolder.removeShop();
+        ShopHolder.saveShop(shop);
+        return Result.ok("修改成功");
+    }
+
+    @Override
+    public Result deleteShop(HttpServletRequest request) {
+        Shop shop = ShopHolder.getShop();
+        if (removeById(shop)) {
+            String header = request.getHeader("Authorization");
+            String token =  header.substring(7);
+            stringRedisTemplate.delete(token);
+            ShopHolder.removeShop();
+            return Result.ok("删除成功");
+        }
+        return Result.fail("删除失败");
+    }
 }

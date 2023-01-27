@@ -27,4 +27,8 @@ public interface IShopService extends IService<Shop> {
     Result changePassword(String oldPassword, String newPassword);
 
     Result changePasswordByEmail(String code, String email, String newPassword);
+
+    Result updateShop(Shop shop);
+
+    Result deleteShop(HttpServletRequest request);
 }
