@@ -31,7 +31,7 @@ public class UserController {
     @GetMapping("opLogin")
     public Result opLogin(String password){
     if (iUserLoginService.opLogin(password)){
-        redisUtil.set(opKey,opValue,6000);
+        redisUtil.set(opKey,opValue,1800);
         return Result.ok("登录成功");
     }
     else
