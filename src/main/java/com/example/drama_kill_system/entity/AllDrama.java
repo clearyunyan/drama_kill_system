@@ -37,5 +37,6 @@ public class AllDrama implements Serializable {
 
     private String img;
 
+    private Integer apply;
 
 }
