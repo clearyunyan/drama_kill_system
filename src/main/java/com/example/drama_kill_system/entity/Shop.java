@@ -37,6 +37,6 @@ public class Shop implements Serializable {
 
     private String about;
 
-
+    private String city;
 
 }

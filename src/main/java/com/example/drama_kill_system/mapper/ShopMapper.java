@@ -1,5 +1,6 @@
 package com.example.drama_kill_system.mapper;
 
+import com.example.drama_kill_system.entity.Application;
 import com.example.drama_kill_system.entity.Shop;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
@@ -17,7 +18,4 @@ import java.util.List;
  */
 @Mapper
 public interface ShopMapper extends BaseMapper<Shop> {
-
-    @Select("select * from application where shop_id = #{shopId} and status = '申请中'")
-    Boolean selectRequest(Integer shopId);
 }
