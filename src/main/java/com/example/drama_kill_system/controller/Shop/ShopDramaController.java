@@ -24,7 +24,7 @@ public class ShopDramaController {
     @GetMapping("/getAllDrama")
     private Result getAllDrama(@RequestParam(value = "current", defaultValue = "1") Integer current) {
         Page<AllDrama> page= managerAllDramaService.query().page(new Page<>(current,10));
-        return Result.ok(page.getRecords());
+        return Result.ok(page.getRecords(),page.getPages());
     }
     @GetMapping("/getDrama")
     private Result getDrama(@RequestParam(value = "current", defaultValue = "1") Integer current) {

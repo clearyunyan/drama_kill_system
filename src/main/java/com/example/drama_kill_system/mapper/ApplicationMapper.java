@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Update;
 
+import java.time.LocalDate;
+
 /**
  * <p>
  *  Mapper 接口
@@ -18,9 +20,9 @@ import org.apache.ibatis.annotations.Update;
 public interface ApplicationMapper extends BaseMapper<Application> {
 
     @Update("update application set status = '未通过' where application_id = #{applicationId}")
-    Boolean refuseApplication(int applicationId);
+    Boolean refuseApplication(Integer applicationId);
 
     @Update("update application set status = '已通过' where application_id = #{applicationId}")
-    Boolean agreeApplication(int applicationId);
+    Boolean agreeApplication(Integer applicationId);
 
 }

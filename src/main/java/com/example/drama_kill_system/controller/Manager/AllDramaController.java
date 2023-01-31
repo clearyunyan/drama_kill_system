@@ -29,21 +29,21 @@ public class AllDramaController {
     @GetMapping("/all")
     private Result queryDrama(@RequestParam(value = "current", defaultValue = "1") Integer current){
         Page<AllDrama> page= managerallDramaService.query().page(new Page<>(current,10));
-        return Result.ok(page.getRecords());
+        return Result.ok(page.getRecords(),page.getPages());
     }
     //条件查询,type
     @GetMapping("/selectByType")
     private Result queryDramaByType(@RequestParam(value = "current", defaultValue = "1") Integer current,@RequestParam("type") String type){
         Page<AllDrama> page=managerallDramaService.lambdaQuery()
                 .eq(AllDrama::getType,type).page(new Page<>(current,10));
-        return Result.ok(page.getRecords());
+        return Result.ok(page.getRecords(),page.getPages());
     }
     //条件查询,人数
     @GetMapping("/selectByCountMan")
     private Result queryDramaByCountMan(@RequestParam(value = "current", defaultValue = "1") Integer current,@RequestParam("countMan") Integer countMan){
         Page<AllDrama> page=managerallDramaService.lambdaQuery()
                 .eq(AllDrama::getCountMan,countMan).page(new Page<>(current,10));
-        return Result.ok(page.getRecords());
+        return Result.ok(page.getRecords(),page.getPages());
     }
     //条件查询,两个都有:
     @GetMapping("/selectByTwo")
@@ -52,7 +52,7 @@ public class AllDramaController {
         Page<AllDrama> page=managerallDramaService.lambdaQuery()
                 .eq(AllDrama::getType,type)
                 .eq(AllDrama::getCountMan,countMan).page(new Page<>(current,10));
-        return Result.ok(page.getRecords());
+        return Result.ok(page.getRecords(),page.getPages());
     }
     @GetMapping("/{id}")
     private Result queryDramaById(@PathVariable("id") Integer id){

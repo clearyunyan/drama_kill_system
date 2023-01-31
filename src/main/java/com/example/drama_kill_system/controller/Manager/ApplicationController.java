@@ -31,7 +31,7 @@ public class ApplicationController {
         Page<Application> page=applicationService.lambdaQuery()
                 .eq(Application::getStatus,"申请中")
                 .page(new Page<>(current,10));
-        return Result.ok(page.getRecords());
+        return Result.ok(page.getRecords(),page.getPages());
     }
 
     //3.2拒绝请求
