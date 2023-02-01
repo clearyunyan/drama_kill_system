@@ -14,7 +14,7 @@ import javax.annotation.Resource;
  *  处理剧本杀游玩申请
  * </p>
  *
- * @author AHMEDALATTAR416
+ * @author lyf
  * @since 2023-01-20
  */
 @RestController
@@ -31,7 +31,7 @@ public class ApplicationController {
         Page<Application> page=applicationService.lambdaQuery()
                 .eq(Application::getStatus,"申请中")
                 .page(new Page<>(current,10));
-        return Result.ok(page.getRecords(),page.getPages());
+        return Result.ok(page.getRecords(), page.getPages());
     }
 
     //3.2拒绝请求

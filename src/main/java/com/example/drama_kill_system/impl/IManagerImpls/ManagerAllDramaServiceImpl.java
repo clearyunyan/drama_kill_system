@@ -4,7 +4,7 @@ import cn.hutool.core.util.BooleanUtil;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.example.drama_kill_system.entity.AllDrama;
-import com.example.drama_kill_system.mapper.AllDramaMapper;
+import com.example.drama_kill_system.mapper.Manager.AllDramaMapper;
 import com.example.drama_kill_system.service.IManager.ManagerAllDramaService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.drama_kill_system.utils.JsonUtils;
@@ -15,7 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.io.File;
-import java.sql.Wrapper;
 import java.util.concurrent.TimeUnit;
 
 /**

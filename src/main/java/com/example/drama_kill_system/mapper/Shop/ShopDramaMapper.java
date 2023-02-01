@@ -1,4 +1,4 @@
-package com.example.drama_kill_system.mapper;
+package com.example.drama_kill_system.mapper.Shop;
 
 import com.example.drama_kill_system.entity.ShopDrama;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

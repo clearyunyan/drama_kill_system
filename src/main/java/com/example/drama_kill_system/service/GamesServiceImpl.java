@@ -1,7 +1,7 @@
 package com.example.drama_kill_system.service.impl;
 
 import com.example.drama_kill_system.entity.Games;
-import com.example.drama_kill_system.mapper.GamesMapper;
+import com.example.drama_kill_system.mapper.Shop.GamesMapper;
 import com.example.drama_kill_system.service.IGamesService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

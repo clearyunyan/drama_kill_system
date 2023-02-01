@@ -35,4 +35,6 @@ public class Games implements Serializable {
     private LocalDateTime endTime;
 
     private String status;
+
+    private Integer applicants_id;
 }

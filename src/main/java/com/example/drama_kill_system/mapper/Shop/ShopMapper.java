@@ -1,6 +1,7 @@
-package com.example.drama_kill_system.mapper;
+package com.example.drama_kill_system.mapper.Shop;
 
-import com.example.drama_kill_system.entity.User;
+import com.example.drama_kill_system.entity.Application;
+import com.example.drama_kill_system.entity.Shop;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -16,5 +17,5 @@ import java.util.List;
  * @since 2023-01-17
  */
 @Mapper
-public interface UserMapper extends BaseMapper<User> {
+public interface ShopMapper extends BaseMapper<Shop> {
 }
