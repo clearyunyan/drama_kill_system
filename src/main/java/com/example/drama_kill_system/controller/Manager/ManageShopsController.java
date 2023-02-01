@@ -45,7 +45,7 @@ public class ManageShopsController {
             ) {
         Page<Shop> page=shopService.lambdaQuery()
                 .page(new Page<>(current,10));
-        return Result.ok(page.getRecords());
+        return Result.ok(page.getRecords(),page.getPages());
     }
 
 
@@ -55,7 +55,7 @@ public class ManageShopsController {
     private Result getAllUsers(@RequestParam(value = "current", defaultValue = "1") Integer current){
         Page<User> page=usersService.lambdaQuery()
                 .page(new Page<>(current,10));
-        return Result.ok(page.getRecords());
+        return Result.ok(page.getRecords(),page.getPages());
     }
 
 }
