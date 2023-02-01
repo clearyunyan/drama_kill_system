@@ -1,10 +1,9 @@
 package com.example.drama_kill_system.config;
 
 import com.example.drama_kill_system.service.IShop.IShopService;
-import com.example.drama_kill_system.service.interceptors.ShopTokenInterceptor;
-import com.example.drama_kill_system.service.interceptors.opInterceptor;
+import com.example.drama_kill_system.interceptors.ShopTokenInterceptor;
+import com.example.drama_kill_system.interceptors.opInterceptor;
 import com.example.drama_kill_system.utils.RedisUtil;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

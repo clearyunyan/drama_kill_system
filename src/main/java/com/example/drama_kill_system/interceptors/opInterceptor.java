@@ -1,4 +1,4 @@
-package com.example.drama_kill_system.service.interceptors;
+package com.example.drama_kill_system.interceptors;
 
 import cn.hutool.core.util.StrUtil;
 import com.example.drama_kill_system.controller.Manager.UserController;
