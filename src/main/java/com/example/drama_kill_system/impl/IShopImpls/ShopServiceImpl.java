@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.example.drama_kill_system.entity.Shop;
 import com.example.drama_kill_system.entity.dto.ShopLoginDTO;
-import com.example.drama_kill_system.mapper.ShopMapper;
+import com.example.drama_kill_system.mapper.Shop.ShopMapper;
 import com.example.drama_kill_system.result.Result;
 import com.example.drama_kill_system.service.IShop.IShopService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

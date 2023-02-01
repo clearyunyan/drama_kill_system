@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.drama_kill_system.entity.AllDrama;
 import com.example.drama_kill_system.entity.Shop;
 import com.example.drama_kill_system.entity.ShopDrama;
-import com.example.drama_kill_system.mapper.ShopDramaMapper;
+import com.example.drama_kill_system.mapper.Shop.ShopDramaMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.drama_kill_system.result.Result;
 import com.example.drama_kill_system.service.IManager.ManagerAllDramaService;
@@ -14,7 +14,6 @@ import com.example.drama_kill_system.utils.ShopHolder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
 
 /**

@@ -1,6 +1,6 @@
 package com.example.drama_kill_system;
 
-import com.example.drama_kill_system.mapper.ApplicationMapper;
+import com.example.drama_kill_system.mapper.Manager.ApplicationMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
