@@ -1,5 +1,6 @@
 package com.example.drama_kill_system.impl.IShopImpls;
 
+import cn.hutool.core.date.DateTime;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.drama_kill_system.entity.Games;
 import com.example.drama_kill_system.mapper.Shop.GamesMapper;
@@ -17,7 +18,7 @@ public class ShopViewApplicationImpl extends ServiceImpl<GamesMapper, Games> imp
     private GamesMapper gamesMapper;
 
     @Override
-    public Result Accept(Integer gamesId, LocalTime time,Integer userId) {
-        return Result.ok(gamesMapper.Accept(gamesId,time) && gamesMapper.updateUserGamesId(gamesId,userId));
+    public Result Accept(Integer game_id, DateTime time, Integer userId) {
+        return Result.ok(gamesMapper.Accept(game_id,time) && gamesMapper.updateUserGamesId(game_id,userId));
     }
 }

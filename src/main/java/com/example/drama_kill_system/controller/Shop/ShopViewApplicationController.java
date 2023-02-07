@@ -1,5 +1,6 @@
 package com.example.drama_kill_system.controller.Shop;
 
+import cn.hutool.core.date.DateTime;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.drama_kill_system.entity.Games;
 import com.example.drama_kill_system.mapper.Shop.GamesMapper;
@@ -41,13 +42,13 @@ public class ShopViewApplicationController {
 
     //同意申请，并将gamesId对应的局的status设置为“playing”
     //用户加playing的局，逻辑在用户系统那边处理吧
-    @GetMapping("/accept/{gamesId}")
-    private Result accept(@PathVariable("gamesId") Integer gamesId){
+    @GetMapping("/accept/{gameId}")
+    private Result accept(@PathVariable("gameId") Integer gameId){
 
         //申请者的userId
-        Integer applicantsId = gamesMapper.getUserId(gamesId);
+        Integer applicantsId = gamesMapper.getUserId(gameId);
 
-        return Result.ok(shopViewApplicationService.Accept(gamesId, LocalTime.now(),applicantsId));
+        return Result.ok(shopViewApplicationService.Accept(gameId, DateTime.now(),applicantsId));
     }
 
     @GetMapping("/refuse")
