@@ -47,7 +47,7 @@ public class ShopDramaServiceImpl extends ServiceImpl<ShopDramaMapper, ShopDrama
         Page<AllDrama> page=managerAllDramaService.lambdaQuery().in(AllDrama::getId,list).page(new Page<>(current,10));
         return Result.ok(page.getRecords(),page.getPages());
     }
-
+//
     @Override
     public Result addDrama(Integer id) {
         AllDrama byId = managerAllDramaService.getById(id);
